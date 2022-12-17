@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Menu, Transition } from '@headlessui/react'
+import React, { useState } from 'react';
+import { Menu, Transition } from '@headlessui/react';
 
 const Dropdown = ({
   align = 'right',
@@ -8,28 +8,28 @@ const Dropdown = ({
   trigger,
   children,
 }) => {
-  let alignmentClasses
+  let alignmentClasses;
 
   switch (width) {
     case '48':
-      width = 'w-48'
-      break
+      width = 'w-48';
+      break;
   }
 
   switch (align) {
     case 'left':
-      alignmentClasses = 'origin-top-left left-0'
-      break
+      alignmentClasses = 'origin-top-left left-0';
+      break;
     case 'top':
-      alignmentClasses = 'origin-top'
-      break
+      alignmentClasses = 'origin-top';
+      break;
     case 'right':
     default:
-      alignmentClasses = 'origin-top-right right-0'
-      break
+      alignmentClasses = 'origin-top-right right-0';
+      break;
   }
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <Menu as="div" className="relative">
@@ -60,7 +60,7 @@ const Dropdown = ({
         </>
       )}
     </Menu>
-  )
-}
+  );
+};
 
-export default Dropdown
+export default Dropdown;

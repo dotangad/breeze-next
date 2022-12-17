@@ -1,5 +1,5 @@
-import AppLayout from '@/components/Layouts/AppLayout'
-import Head from 'next/head'
+import AppLayout from '@/components/Layouts/AppLayout';
+import Head from 'next/head';
 
 const Dashboard = () => {
   return (
@@ -24,7 +24,7 @@ const Dashboard = () => {
         </div>
       </div>
     </AppLayout>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

@@ -10,6 +10,6 @@ const InputError = ({ messages = [], className = '' }) => (
       </>
     )}
   </>
-)
+);
 
-export default InputError
+export default InputError;

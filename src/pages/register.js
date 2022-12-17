@@ -1,28 +1,28 @@
-import ApplicationLogo from '@/components/ApplicationLogo'
-import AuthCard from '@/components/AuthCard'
-import Button from '@/components/Button'
-import GuestLayout from '@/components/Layouts/GuestLayout'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import Label from '@/components/Label'
-import Link from 'next/link'
-import { useAuth } from '@/hooks/auth'
-import { useState } from 'react'
+import ApplicationLogo from '@/components/ApplicationLogo';
+import AuthCard from '@/components/AuthCard';
+import Button from '@/components/Button';
+import GuestLayout from '@/components/Layouts/GuestLayout';
+import Input from '@/components/Input';
+import InputError from '@/components/InputError';
+import Label from '@/components/Label';
+import Link from 'next/link';
+import { useAuth } from '@/hooks/auth';
+import { useState } from 'react';
 
 const Register = () => {
   const { register } = useAuth({
     middleware: 'guest',
     redirectIfAuthenticated: '/dashboard',
-  })
+  });
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirmation, setPasswordConfirmation] = useState('')
-  const [errors, setErrors] = useState([])
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [errors, setErrors] = useState([]);
 
   const submitForm = event => {
-    event.preventDefault()
+    event.preventDefault();
 
     register({
       name,
@@ -30,8 +30,8 @@ const Register = () => {
       password,
       password_confirmation: passwordConfirmation,
       setErrors,
-    })
-  }
+    });
+  };
 
   return (
     <GuestLayout>
@@ -125,7 +125,7 @@ const Register = () => {
         </form>
       </AuthCard>
     </GuestLayout>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

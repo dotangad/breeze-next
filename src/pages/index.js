@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import { useAuth } from '@/hooks/auth'
+import Head from 'next/head';
+import Link from 'next/link';
+import { useAuth } from '@/hooks/auth';
 
 export default function Home() {
-  const { user } = useAuth({ middleware: 'guest' })
+  const { user } = useAuth({ middleware: 'guest' });
 
   return (
     <>
@@ -294,5 +294,5 @@ export default function Home() {
         </div>
       </div>
     </>
-  )
+  );
 }
