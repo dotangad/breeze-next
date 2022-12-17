@@ -1,26 +1,26 @@
-import ApplicationLogo from '@/components/ApplicationLogo';
-import AuthCard from '@/components/AuthCard';
-import AuthSessionStatus from '@/components/AuthSessionStatus';
-import Button from '@/components/Button';
-import GuestLayout from '@/components/Layouts/GuestLayout';
-import Input from '@/components/Input';
-import InputError from '@/components/InputError';
-import Label from '@/components/Label';
-import Link from 'next/link';
-import { useAuth } from '@/hooks/auth';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import ApplicationLogo from "@/components/ApplicationLogo";
+import AuthCard from "@/components/AuthCard";
+import AuthSessionStatus from "@/components/AuthSessionStatus";
+import Button from "@/components/Button";
+import GuestLayout from "@/components/Layouts/GuestLayout";
+import Input from "@/components/Input";
+import InputError from "@/components/InputError";
+import Label from "@/components/Label";
+import Link from "next/link";
+import { useAuth } from "@/hooks/auth";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Login = () => {
   const router = useRouter();
 
   const { login } = useAuth({
-    middleware: 'guest',
-    redirectIfAuthenticated: '/dashboard',
+    middleware: "guest",
+    redirectIfAuthenticated: "/dashboard",
   });
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [shouldRemember, setShouldRemember] = useState(false);
   const [errors, setErrors] = useState([]);
   const [status, setStatus] = useState(null);
@@ -52,8 +52,7 @@ const Login = () => {
           <Link href="/">
             <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
           </Link>
-        }
-      >
+        }>
         {/* Session Status */}
         <AuthSessionStatus className="mb-4" status={status} />
 
@@ -110,8 +109,7 @@ const Login = () => {
           <div className="flex items-center justify-end mt-4">
             <Link
               href="/forgot-password"
-              className="underline text-sm text-gray-600 hover:text-gray-900"
-            >
+              className="underline text-sm text-gray-600 hover:text-gray-900">
               Forgot your password?
             </Link>
 

@@ -51,7 +51,7 @@ This Next.js application contains a custom `useAuth` React hook, designed to abs
 
 ```js
 const ExamplePage = () => {
-  const { logout, user } = useAuth({ middleware: 'auth' });
+  const { logout, user } = useAuth({ middleware: "auth" });
 
   return (
     <>

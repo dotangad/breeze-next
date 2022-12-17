@@ -1,19 +1,20 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  content: ['./src/**/*.js'],
-  darkMode: 'media',
+  content: ["./src/**/*.js"],
+  darkMode: "media",
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+        sans: ["Nunito", ...defaultTheme.fontFamily.sans],
       },
     },
   },
   variants: {
     extend: {
-      opacity: ['disabled'],
+      opacity: ["disabled"],
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require("@tailwindcss/forms")],
 };

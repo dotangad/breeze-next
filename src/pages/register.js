@@ -1,24 +1,24 @@
-import ApplicationLogo from '@/components/ApplicationLogo';
-import AuthCard from '@/components/AuthCard';
-import Button from '@/components/Button';
-import GuestLayout from '@/components/Layouts/GuestLayout';
-import Input from '@/components/Input';
-import InputError from '@/components/InputError';
-import Label from '@/components/Label';
-import Link from 'next/link';
-import { useAuth } from '@/hooks/auth';
-import { useState } from 'react';
+import ApplicationLogo from "@/components/ApplicationLogo";
+import AuthCard from "@/components/AuthCard";
+import Button from "@/components/Button";
+import GuestLayout from "@/components/Layouts/GuestLayout";
+import Input from "@/components/Input";
+import InputError from "@/components/InputError";
+import Label from "@/components/Label";
+import Link from "next/link";
+import { useAuth } from "@/hooks/auth";
+import { useState } from "react";
 
 const Register = () => {
   const { register } = useAuth({
-    middleware: 'guest',
-    redirectIfAuthenticated: '/dashboard',
+    middleware: "guest",
+    redirectIfAuthenticated: "/dashboard",
   });
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
 
   const submitForm = event => {
@@ -40,8 +40,7 @@ const Register = () => {
           <Link href="/">
             <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
           </Link>
-        }
-      >
+        }>
         <form onSubmit={submitForm}>
           {/* Name */}
           <div>
@@ -115,8 +114,7 @@ const Register = () => {
           <div className="flex items-center justify-end mt-4">
             <Link
               href="/login"
-              className="underline text-sm text-gray-600 hover:text-gray-900"
-            >
+              className="underline text-sm text-gray-600 hover:text-gray-900">
               Already registered?
             </Link>
 

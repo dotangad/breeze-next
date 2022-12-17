@@ -1,4 +1,4 @@
-const InputError = ({ messages = [], className = '' }) => (
+const InputError = ({ messages = [], className = "" }) => (
   <>
     {messages.length > 0 && (
       <>
