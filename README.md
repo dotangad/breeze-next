@@ -51,15 +51,15 @@ This Next.js application contains a custom `useAuth` React hook, designed to abs
 
 ```js
 const ExamplePage = () => {
-    const { logout, user } = useAuth({ middleware: 'auth' })
+  const { logout, user } = useAuth({ middleware: 'auth' })
 
-    return (
-        <>
-            <p>{user?.name}</p>
+  return (
+    <>
+      <p>{user?.name}</p>
 
-            <button onClick={logout}>Sign out</button>
-        </>
-    )
+      <button onClick={logout}>Sign out</button>
+    </>
+  )
 }
 
 export default ExamplePage
