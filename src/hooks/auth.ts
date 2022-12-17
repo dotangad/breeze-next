@@ -3,7 +3,13 @@ import axios from "@/lib/axios";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
+export const useAuth = ({
+  middleware,
+  redirectIfAuthenticated,
+}: {
+  middleware: string;
+  redirectIfAuthenticated: string;
+}) => {
   const router = useRouter();
 
   const {
@@ -23,10 +29,11 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
   const csrf = () => axios.get("/sanctum/csrf-cookie");
 
+  // @ts-ignore
   const register = async ({ setErrors, ...props }) => {
     await csrf();
 
-    setErrors([]);
+    typeof setErrors === "function" && setErrors([]);
 
     axios
       .post("/register", props)
@@ -34,15 +41,17 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
       .catch(error => {
         if (error.response.status !== 422) throw error;
 
-        setErrors(error.response.data.errors);
+        typeof setErrors === "function" &&
+          setErrors(error.response.data.errors);
       });
   };
 
+  // @ts-ignore
   const login = async ({ setErrors, setStatus, ...props }) => {
     await csrf();
 
-    setErrors([]);
-    setStatus(null);
+    typeof setErrors === "function" && setErrors([]);
+    typeof setStatus === "function" && setStatus(null);
 
     axios
       .post("/login", props)
@@ -50,15 +59,17 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
       .catch(error => {
         if (error.response.status !== 422) throw error;
 
-        setErrors(error.response.data.errors);
+        typeof setErrors === "function" &&
+          setErrors(error.response.data.errors);
       });
   };
 
+  // @ts-ignore
   const forgotPassword = async ({ setErrors, setStatus, email }) => {
     await csrf();
 
-    setErrors([]);
-    setStatus(null);
+    typeof setErrors === "function" && setErrors([]);
+    typeof setStatus === "function" && setStatus(null);
 
     axios
       .post("/forgot-password", { email })
@@ -66,15 +77,19 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
       .catch(error => {
         if (error.response.status !== 422) throw error;
 
-        setErrors(error.response.data.errors);
+        typeof setErrors === "function" &&
+          setErrors(error.response.data.errors);
       });
   };
 
+  // @ts-ignore
   const resetPassword = async ({ setErrors, setStatus, ...props }) => {
     await csrf();
 
     setErrors([]);
     setStatus(null);
+    typeof setErrors === "function" && setErrors([]);
+    typeof setStatus === "function" && setStatus(null);
 
     axios
       .post("/reset-password", { token: router.query.token, ...props })
@@ -84,14 +99,19 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
       .catch(error => {
         if (error.response.status !== 422) throw error;
 
-        setErrors(error.response.data.errors);
+        typeof setErrors === "function" &&
+          setErrors(error.response.data.errors);
       });
   };
 
+  // @ts-ignore
   const resendEmailVerification = ({ setStatus }) => {
     axios
       .post("/email/verification-notification")
-      .then(response => setStatus(response.data.status));
+      .then(
+        response =>
+          typeof setStatus === "function" && setStatus(response.data.status),
+      );
   };
 
   const logout = async () => {

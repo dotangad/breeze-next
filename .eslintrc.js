@@ -24,7 +24,10 @@ module.exports = {
     "no-console": "warn",
     "no-nested-ternary": 0,
     "no-underscore-dangle": 0,
-    "no-unused-expressions": ["error", { allowTernary: true }],
+    "no-unused-expressions": [
+      "error",
+      { allowTernary: true, allowShortCircuit: true },
+    ],
     camelcase: 0,
     "react/self-closing-comp": 1,
     "react/jsx-filename-extension": [1, { extensions: [".js", "jsx"] }],
@@ -40,5 +43,6 @@ module.exports = {
     quotes: ["error", "double"],
     semi: ["error", "always"],
     "prettier/prettier": ["error", { usePrettierrc: true }],
+    "@typescript-eslint/ban-ts-comment": "off",
   },
 };
